@@ -11,7 +11,7 @@ Scheduler is a simple job scheduling framework in C# that allows you to easily d
 
 ## Getting Started
 
-1. Install the Scheduler package from NuGet:
+1. Install the Scheduler package from [NuGet](https://www.nuget.org/packages/nightmaregaurav.scheduler/):
 
    ```bash
    dotnet add package nightmaregaurav.scheduler
