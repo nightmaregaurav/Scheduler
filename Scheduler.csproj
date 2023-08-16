@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PackageId>nightmaregaurav.scheduler</PackageId>
+        <Version>1.0.0</Version>
+        <PackageVersion>1.0.0</PackageVersion>
+        <Description>Scheduler is a simple job scheduling framework in C# that allows you to easily define and execute scheduled tasks in the background. This project provides a flexible base class for creating scheduled jobs, a background service for managing job execution, a static api to register your background services dynamically, and an extension method for integrating the scheduler into your application.</Description>
+        <Authors>Gaurav Nyaupane</Authors>
+        <Owners>nightmaregaurav</Owners>
+        <PackageProjectUrl>https://github.com/nightmaregaurav/Scheduler</PackageProjectUrl>
+        <Copyright>Copyright ©2023 Gaurav Nyaupane (nightmaregaurav)</Copyright>
+        <PackageTags>cron job background hosted service</PackageTags>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="2.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="LICENSE" Pack="true" PackagePath="" />
+        <None Include="README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+</Project>
