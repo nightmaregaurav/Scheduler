@@ -52,7 +52,6 @@ Scheduler is a simple job scheduling framework in C# that allows you to easily d
 
    // Add the scheduler service
    builder.Services.StartScheduler();
-   }
    ```
 
 4. Enqueue jobs for scheduling:
