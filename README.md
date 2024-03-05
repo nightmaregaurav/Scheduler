@@ -58,11 +58,18 @@ Scheduler is a simple job scheduling framework in C# that allows you to easily d
 
    ```csharp
    var myJob = new MyCustomJob();
-   await SchedulerService.ScheduleJobAsync(myJob);
+   SchedulerService.ScheduleJobAsync(myJob);
    ```
 
 5. Run your application, and the scheduler will automatically start executing the scheduled jobs in the background.
 
+## Example
+- Copy contents of [Example](Example) folder to a new .NET web application.
+- Rename `program-example.cs` to `program.cs` and uncomment the contents of `program.cs`.
+- Run the application.
+- You will see a static scheduled job running every 5 seconds.
+- You can send a get request to `/print-time` to schedule a dynamic job that will run every 10 seconds.
+- You can send a post request to `/send-message` with `to`, `message` and `secondsDelay` in body to schedule a dynamic job that will run once after the specified delay.
 ## License
 
 Scheduler is released under the MIT License. You can find the full license details in the [LICENSE](LICENSE) file.

@@ -3,15 +3,19 @@ using Microsoft.Extensions.Hosting;
 
 namespace Scheduler
 {
-    public class SchedulerService : BackgroundService
+    public class SchedulerService(IServiceProvider serviceProvider) : BackgroundService
     {
-        private readonly IServiceProvider _serviceProvider;
-
         private static readonly Queue<ScheduledJob> PendingJobs = new();
         private static readonly object PendingJobsLock = new();
 
-        public SchedulerService(IServiceProvider serviceProvider) => _serviceProvider = serviceProvider;
-
+        /// <summary>
+        /// Schedules a job to be executed asynchronously.
+        /// </summary>
+        /// <typeparam name="TJob">The type of the job to be scheduled.</typeparam>
+        /// <param name="job">The job to be scheduled.</param>
+        /// <remarks>
+        /// Dynamically scheduled jobs will neither resume nor persist when the application restarts.
+        /// </remarks>
         public static void ScheduleJobAsync<TJob>(TJob job) where TJob : ScheduledJob
         {
             lock (PendingJobsLock) PendingJobs.Enqueue(job);
@@ -25,7 +29,7 @@ namespace Scheduler
 
         private async Task Execute(CancellationToken stoppingToken)
         {
-            using var scope = _serviceProvider.CreateScope();
+            using var scope = serviceProvider.CreateScope();
             var scopedServiceProvider = scope.ServiceProvider;
 
             while (!stoppingToken.IsCancellationRequested)
