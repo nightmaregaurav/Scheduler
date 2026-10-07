@@ -1,3 +1,4 @@
+# USE [https://github.com/nightmaregaurav/Schedulite](https://github.com/nightmaregaurav/Schedulite) INSTEAD
 # Scheduler
 
 Scheduler is a simple job scheduling framework in C# that allows you to easily define and execute scheduled tasks in the background. This project provides a flexible base class for creating scheduled jobs, a background service for managing job execution, a static api to register your background services dynamically, and an extension method for integrating the scheduler into your application.
